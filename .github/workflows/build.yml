@@ -1,0 +1,18 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Find project files
+        run: |
+          ls -la
+          find . -maxdepth 3 -type f | head -100
